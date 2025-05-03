@@ -1,16 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-
-class MockFirebaseStorage {
-  Future<String> uploadAndGetUrl(dynamic image) async {
-    return 'https://mock.url/image.jpg';
-  }
-}
-
-class MockFirestore {
-  Future<void> addUpdate(Map<String, dynamic> data) async {
-    print('Mock added to Firestore: $data');
-  }
-}
+import 'package:hosna/services/ProjectUpdateService.dart';
 
 void main() {
   group('Project Update Tests', () {
