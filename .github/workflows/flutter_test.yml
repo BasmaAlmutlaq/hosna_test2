@@ -17,7 +17,7 @@ jobs:
     - name: Set up Flutter
       uses: subosito/flutter-action@v2
       with:
-        flutter-version: '3.19.0'  # Or your preferred version
+        flutter-version: '3.22.0' # Make sure this matches Dart 3.6.1
 
     - name: Install dependencies
       run: flutter pub get
@@ -28,4 +28,4 @@ jobs:
     - name: Upload to Codecov
       uses: codecov/codecov-action@v3
       with:
-        token: ${{ secrets.CODECOV_TOKEN }}  # Required if repo is private
+        files: coverage/lcov.info
