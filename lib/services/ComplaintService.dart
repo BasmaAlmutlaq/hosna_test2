@@ -13,10 +13,7 @@ class ComplaintService {
     required String targetCharityAddress,
   }) async {
     // Add validation
-    if (title.isEmpty || description.isEmpty) {
-      return false;
-    }
-    if (targetCharityAddress.isEmpty) {
+    if (title.isEmpty) {
       return false;
     }
 
