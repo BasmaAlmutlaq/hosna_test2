@@ -1,22 +1,16 @@
 import 'package:flutter_test/flutter_test.dart';
-
-Future<List<Map<String, dynamic>>> getProjectUpdates(String projectId) async {
-  if (projectId == 'project_with_updates') {
-    return [
-      {'text': 'Update 1', 'timestamp': DateTime.now()},
-    ];
-  }
-  // - Project WITHOUT updates
-  else {
-    return [];
-  }
-}
+import 'package:hosna/services/ProjectUpdateService.dart';
 
 void main() {
+  late Updates projectUpdateService;
+  setUp(() {
+    projectUpdateService = Updates();
+  });
   group('getProjectUpdates', () {
     // Test 1: When updates exist
     test('returns list of updates with correct structure', () async {
-      final updates = await getProjectUpdates('project_with_updates');
+      final updates =
+          await projectUpdateService.getProjectUpdates('project_with_updates');
 
       // Verify list is NOT empty
       expect(updates, isNotEmpty);
@@ -29,7 +23,8 @@ void main() {
 
     // Test 2: When NO updates exist
     test('returns empty list when no updates', () async {
-      final updates = await getProjectUpdates('project_without_updates');
+      final updates = await projectUpdateService
+          .getProjectUpdates('project_without_updates');
       expect(updates, isEmpty); // Check list IS empty
     });
   });
