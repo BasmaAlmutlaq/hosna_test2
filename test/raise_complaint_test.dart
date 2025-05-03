@@ -7,21 +7,6 @@ class MockComplaintService extends ComplaintService {
           rpcUrl: 'https://test.rpc.url', // dummy URL for testing
           contractAddress: '0xTestContractAddress', // dummy address for testing
         );
-
-  @override
-  Future<bool> sendComplaint({
-    required String title,
-    required String description,
-    required String targetCharityAddress,
-  }) async {
-    if (title.isEmpty || description.isEmpty) {
-      return false;
-    }
-    if (targetCharityAddress.isEmpty) {
-      return false;
-    }
-    return true;
-  }
 }
 
 void main() {
