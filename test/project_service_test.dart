@@ -10,6 +10,23 @@ class MockBlockchainService extends BlockchainService {
   }
 }
 
+class FailingBlockchainService implements BlockchainService {
+  @override
+  Future<void> addProject(
+    String name,
+    String description,
+    int startDate,
+    int deadline,
+    double totalAmount,
+    String type,
+  ) async {
+    throw Exception('Simulated blockchain failure');
+  }
+
+  @override
+  dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
+}
+
 void main() {
   test('postProject test case', () async {
     final projectService = ProjectService();
@@ -63,6 +80,24 @@ void main() {
       totalAmount: 0.0,
       type: "Health",
       blockchainService: MockBlockchainService(),
+    );
+
+    expect(result, false);
+  });
+
+  test('postProject returns false when blockchainService throws an exception',
+      () async {
+    final projectService = ProjectService();
+    final failingService = FailingBlockchainService();
+
+    final result = await projectService.postProject(
+      name: "Test Project",
+      description: "Test Description",
+      startDate: 1672531200,
+      deadline: 1675219600,
+      totalAmount: 1000.0,
+      type: "Health",
+      blockchainService: failingService,
     );
 
     expect(result, false);
