@@ -1,0 +1,18 @@
+{
+    "inputs": [
+      { "internalType": "address", "name": "_wallet", "type": "address" },
+      { "internalType": "string", "name": "_name", "type": "string" },
+      { "internalType": "string", "name": "_email", "type": "string" },
+      { "internalType": "string", "name": "_phone", "type": "string" },
+      { "internalType": "string", "name": "_licenseNumber", "type": "string" },
+      { "internalType": "string", "name": "_city", "type": "string" },
+      { "internalType": "string", "name": "_description", "type": "string" },
+      { "internalType": "string", "name": "_website", "type": "string" },
+      { "internalType": "string", "name": "_establishmentDate", "type": "string" }
+    ],
+    "name": "updateCharity",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+  
