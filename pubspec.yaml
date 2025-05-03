@@ -97,7 +97,7 @@ flutter:
     - assets/Projects.png
     - assets/BlueProjects.png
     - assets/api.json   
-    - assets/hourglass.json
+    # - assets/hourglass.json
 
 flutter_native_splash:
   color: "#ffffff"  # White background
